@@ -23,7 +23,7 @@ func NewFinder() *finderImpl {
 
 // Map of service providers and its clients
 var providers = map[string]clients.Client{
-	OoklaProviderCode:   ookla.NewClient(),
+	OoklaProviderCode:   ookla.New(),
 	FastComProviderCode: fast.NewClient(),
 }
 

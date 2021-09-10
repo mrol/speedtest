@@ -2,18 +2,20 @@ package ookla
 
 import (
 	"github.com/mrol/speedtest/common"
-	"github.com/showwin/speedtest-go/speedtest"
 )
 
 type Client struct {
+	serverFinder serverFinder
 }
 
-func NewClient() *Client {
-	return &Client{}
+func New() *Client {
+	return &Client{
+		serverFinder: newServerFinder(),
+	}
 }
 
 func (c *Client) GetDownloadSpeed() (float64, error) {
-	servers, err := findServers()
+	servers, err := c.serverFinder.FindServers()
 	if err != nil {
 		return 0, err
 	}
@@ -21,19 +23,19 @@ func (c *Client) GetDownloadSpeed() (float64, error) {
 	measures := make([]float64, 0, len(servers))
 
 	for _, s := range servers {
-		err = s.DownloadTest(false)
+		speed, err := s.DownloadTest()
 		if err != nil {
 			return 0, err
 		}
 
-		measures = append(measures, s.DLSpeed)
+		measures = append(measures, speed)
 	}
 
 	return common.AvgFloat64(measures), nil
 }
 
 func (c *Client) GetUploadSpeed() (float64, error) {
-	servers, err := findServers()
+	servers, err := c.serverFinder.FindServers()
 	if err != nil {
 		return 0, err
 	}
@@ -41,28 +43,13 @@ func (c *Client) GetUploadSpeed() (float64, error) {
 	measures := make([]float64, 0, len(servers))
 
 	for _, s := range servers {
-		err = s.UploadTest(false)
+		speed, err := s.UploadTest()
 		if err != nil {
 			return 0, err
 		}
 
-		measures = append(measures, s.ULSpeed)
+		measures = append(measures, speed)
 	}
 
 	return common.AvgFloat64(measures), nil
-}
-
-func findServers() (speedtest.Servers, error) {
-	user, err := speedtest.FetchUserInfo()
-	if err != nil {
-		return nil, err
-	}
-
-	serverList, err := speedtest.FetchServerList(user)
-	if err != nil {
-		return nil, err
-	}
-
-	targets, err := serverList.FindServer([]int{})
-	return targets, err
 }
