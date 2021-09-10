@@ -1,0 +1,49 @@
+# github.com/antonholmquist/jason v1.0.0
+## explicit
+# github.com/davecgh/go-spew v1.1.0
+github.com/davecgh/go-spew/spew
+# github.com/ddo/go-spin v0.0.0-20160718105357-ab0a40e623c0
+## explicit
+# github.com/ddo/pick-json v0.0.0-20170207095303-c8760e09e0fe
+## explicit
+github.com/ddo/pick-json
+# github.com/ddo/rq v0.0.0-20190828174524-b3daa55fcaba
+## explicit
+github.com/ddo/rq
+github.com/ddo/rq/client
+github.com/ddo/rq/client/jar
+# github.com/golang/mock v1.6.0
+## explicit
+github.com/golang/mock/gomock
+# github.com/pmezard/go-difflib v1.0.0
+github.com/pmezard/go-difflib/difflib
+# github.com/showwin/speedtest-go v1.1.4
+## explicit
+github.com/showwin/speedtest-go/speedtest
+# github.com/stretchr/objx v0.1.0
+github.com/stretchr/objx
+# github.com/stretchr/testify v1.7.0
+## explicit
+github.com/stretchr/testify/assert
+github.com/stretchr/testify/mock
+github.com/stretchr/testify/require
+# golang.org/x/net v0.0.0-20210405180319-a5a99cb37ef4
+golang.org/x/net/html
+golang.org/x/net/html/atom
+# golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
+golang.org/x/sync/errgroup
+# gopkg.in/ddo/go-dlog.v1 v1.0.2
+## explicit
+# gopkg.in/ddo/go-dlog.v2 v2.1.0
+## explicit
+gopkg.in/ddo/go-dlog.v2
+# gopkg.in/ddo/go-fast.v0 v0.0.0-20190807090025-2ab4a3dd618c
+## explicit
+gopkg.in/ddo/go-fast.v0
+# gopkg.in/ddo/pick.v1 v1.2.2
+## explicit
+gopkg.in/ddo/pick.v1
+# gopkg.in/ddo/request.v1 v1.4.2
+## explicit
+# gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c
+gopkg.in/yaml.v3
